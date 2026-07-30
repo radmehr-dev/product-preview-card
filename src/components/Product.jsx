@@ -8,6 +8,7 @@ import thumbnailImage3 from "../assets/images/image-product-3-thumbnail.jpg"
 import thumbnailImage4 from "../assets/images/image-product-4-thumbnail.jpg"
 import minus from "../assets/images/icon-minus.svg"
 import plus from "../assets/images/icon-plus.svg"
+import cart from "../assets/images/icon-cart.svg"
 import { useState } from "react"
 
 const images = [
@@ -32,10 +33,33 @@ const images = [
 function Product() {
     const [selectedImage, setSelectedImage] = useState(0)
     const [amount, setAmount] = useState(0)
+    const [cartItems, setCartItems] = useState([{}])
 
-    function handleThumbnailClick(index) {
+    const handleThumbnailClick = (index) => {
         setSelectedImage(index)
     }
+
+    const handleDecrease = () => {
+        setAmount((prev) => {
+            if (prev > 0) {
+                return prev - 1
+            } else if (prev === 0) {
+                return 0
+            }
+        })
+    }
+
+    const handleIncrease = () => {
+        setAmount((prev) => prev + 1)
+    }
+
+    const handleAddToCart = () => {
+        setCartItems((prev) => [prev, {
+            name: "sneaker",
+            quantity: amount
+        }])
+    }
+    
     return (
         <div className="flex justify-center">
             <div className="flex flex-col md:flex-row justify-start max-w-400">
@@ -67,7 +91,51 @@ function Product() {
                         )}
                     </div>
                 </div>
-                
+                <div className="flex flex-col p-8 md:ml-12 h-auto mt-32 ">
+                    <h4 className="font-sans font-medium text-gray-500">
+                        SNEAKER COMPANY
+                    </h4>
+                    <div>
+                        <h1 className="mt-5 font-sans text-gray-800 text-5xl font-bold">
+                            Fall Limited Edition Sneakers
+                        </h1>
+                        <p className="mt-12 font-normal md:font-medium text-gray-500">
+                            These low-profile sneakers are your perfect casual
+                            wear companion. Featuring a durable rubber outer
+                            sole, they'll withstand everything the weather can
+                            offer.
+                        </p>
+                    </div>
+                    <div className="font-bold font-sans text-3xl mt-8">
+                        <h2 className="">
+                            125.00${" "}
+                            <span className="bg-gray-800 text-white text-lg p-1 rounded px-3 ml-3">
+                                50%
+                            </span>
+                        </h2>
+                        <p className="line-through text-lg text-gray-500">
+                            250.00$
+                        </p>
+                    </div>
+                    <div className="flex flex-row mt-12">
+                        <div className="flex flex-row align-middle justify-center">
+                            <button type="button" onClick={handleDecrease}>
+                                <img src={minus} alt="minus" className="" />
+                            </button>
+                            <p className="mx-10 self-center">{amount}</p>
+                            <button type="button" onClick={handleIncrease}>
+                                <img src={plus} alt="plus" className="" />
+                            </button>
+                        </div>
+                        <button
+                            type="button"
+                            className="px-10 lg:py-4 lg:px-16 md:px-14 py-2 font-bold bg-[hsl(26_100%_55%)] ml-6 rounded-xl flex justify-center align-middle"
+                        >
+                            <img src={cart} alt="Cart" className="w-4 sm:4 md:w-5 sm:mr-1 md:mr-2" />
+                            Add to cart
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     )
