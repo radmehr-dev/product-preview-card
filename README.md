@@ -20,3 +20,6 @@ A responsive product preview card built with React and Tailwind CSS.
 npm install
 npm run dev
 ```
+## Preview
+
+![Product Screenshot](src/assets/design/desktop-design.jpg)
