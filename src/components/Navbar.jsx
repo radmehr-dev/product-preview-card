@@ -2,13 +2,27 @@ import logo from "../assets/images/logo.svg"
 import menu from "../assets/images/icon-menu.svg"
 import cart from "../assets/images/icon-cart.svg"
 import avatar from "../assets/images/image-avatar.png"
+import Cart from "../components/Cart"
+import { useState } from "react"
+import { useContext } from "react"
+import { ProductContext } from "../context/ProductContext"
 
 function Navbar() {
+    const [isOpen, setIsOpen] = useState(false)
+    const { count } = useContext(ProductContext)
+
+    const handleCart = () => {
+        setIsOpen((prev) => !prev)
+    }
     return (
         <nav className="relative bg-white after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px font-light">
             <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
                 <div className="relative flex h-16 items-center justify-between">
-                    <img src={menu} alt="Menu" className="h-4 mr-8 block md:hidden" />
+                    <img
+                        src={menu}
+                        alt="Menu"
+                        className="h-4 mr-8 block md:hidden"
+                    />
                     <div className="flex flex-1 items-center justify-start md:items-stretch md:justify-start">
                         <div className="flex shrink-0 items-center">
                             <img
@@ -52,22 +66,21 @@ function Navbar() {
                             </div>
                         </div>
                     </div>
+                    <Cart isOpen={isOpen} />
                     <div className="flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                        <button
-                            type="button"
-                            className="relative rounded-full p-1 text-gray-400 hover:opacity-70 focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500"
-                        >
+                        <div className="relative mr-4">
+                            <button onClick={handleCart}>
+                                <img src={cart} alt="Cart" />
+                            </button>
+
+                            {count > 0 && (
+                                <span className="absolute -top-2 right-2 bg-orange-500 text-white text-xs rounded-full px-2">
+                                    {count}
+                                </span>
+                            )}
+                        </div>
+                        <button type="button" className="">
                             <img
-                                src={cart}
-                                alt="Cart"
-                                className="block w-5 h-5 mx-4"
-                            />
-                        </button>
-                        <button
-                            type="button"
-                            className=""
-                        >
-                            <img   
                                 src={avatar}
                                 alt="User Avatar"
                                 className="h-12 w-12 border-2 border-transparent rounded-full hover:border-[hsl(26_100%_55%)]"

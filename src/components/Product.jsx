@@ -9,7 +9,8 @@ import thumbnailImage4 from "../assets/images/image-product-4-thumbnail.jpg"
 import minus from "../assets/images/icon-minus.svg"
 import plus from "../assets/images/icon-plus.svg"
 import cart from "../assets/images/icon-cart.svg"
-import { useState } from "react"
+import { useState, useEffect, useContext } from "react"
+import { ProductContext } from "../context/ProductContext"
 
 const images = [
     {
@@ -32,34 +33,13 @@ const images = [
 
 function Product() {
     const [selectedImage, setSelectedImage] = useState(0)
-    const [amount, setAmount] = useState(0)
-    const [cartItems, setCartItems] = useState([{}])
+    const [quantity, setQuantity] = useState(0)
+    const { count, setCount } = useContext(ProductContext)
 
     const handleThumbnailClick = (index) => {
         setSelectedImage(index)
     }
 
-    const handleDecrease = () => {
-        setAmount((prev) => {
-            if (prev > 0) {
-                return prev - 1
-            } else if (prev === 0) {
-                return 0
-            }
-        })
-    }
-
-    const handleIncrease = () => {
-        setAmount((prev) => prev + 1)
-    }
-
-    const handleAddToCart = () => {
-        setCartItems((prev) => [prev, {
-            name: "sneaker",
-            quantity: amount
-        }])
-    }
-    
     return (
         <div className="flex justify-center">
             <div className="flex flex-col md:flex-row justify-start max-w-400">
@@ -119,19 +99,32 @@ function Product() {
                     </div>
                     <div className="flex flex-row mt-12">
                         <div className="flex flex-row align-middle justify-center">
-                            <button type="button" onClick={handleDecrease}>
+                            <button
+                                type="button"
+                                onClick={() =>
+                                    quantity > 0 && setQuantity(quantity - 1)
+                                }
+                            >
                                 <img src={minus} alt="minus" className="" />
                             </button>
-                            <p className="mx-10 self-center">{amount}</p>
-                            <button type="button" onClick={handleIncrease}>
+                            <p className="mx-10 self-center">{quantity}</p>
+                            <button
+                                type="button"
+                                onClick={() => setQuantity(quantity + 1)}
+                            >
                                 <img src={plus} alt="plus" className="" />
                             </button>
                         </div>
                         <button
                             type="button"
-                            className="px-10 lg:py-4 lg:px-16 md:px-14 py-2 font-bold bg-[hsl(26_100%_55%)] ml-6 rounded-xl flex justify-center align-middle"
+                            className="px-10 lg:py-4 lg:px-16 md:px-14 py-2 font-bold bg-[hsl(26_100%_55%)] ml-6 rounded-xl flex justify-center align-middle hover:opacity-80 active:scale-95 transition-transform"
+                            onClick={() => setCount(quantity)}
                         >
-                            <img src={cart} alt="Cart" className="w-4 sm:4 md:w-5 sm:mr-1 md:mr-2" />
+                            <img
+                                src={cart}
+                                alt="Cart"
+                                className="w-4 sm:w-4 md:w-5 sm:mr-1 md:mr-2 "
+                            />
                             Add to cart
                         </button>
                     </div>
