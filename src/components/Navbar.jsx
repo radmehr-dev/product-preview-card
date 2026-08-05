@@ -5,24 +5,32 @@ import avatar from "../assets/images/image-avatar.png"
 import Cart from "../components/Cart"
 import { useState } from "react"
 import { useContext } from "react"
-import { ProductContext } from "../context/ProductContext"
+import { ProductContext } from "../contexts/ProductContext"
+import { NavbarContext } from "../contexts/NavbarContext"
 
 function Navbar() {
     const [isOpen, setIsOpen] = useState(false)
     const { count } = useContext(ProductContext)
+    const { isSidebarOpen, setIsSidebarOpen } = useContext(NavbarContext)
 
     const handleCart = () => {
         setIsOpen((prev) => !prev)
     }
+
     return (
         <nav className="relative bg-white after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px font-light">
             <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
                 <div className="relative flex h-16 items-center justify-between">
-                    <img
-                        src={menu}
-                        alt="Menu"
-                        className="h-4 mr-8 block md:hidden"
-                    />
+                    <button
+                        className="p2"
+                        onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+                    >
+                        <img
+                            src={menu}
+                            alt="Menu"
+                            className="h-4 mr-8 ml-3 block md:hidden"
+                        />
+                    </button>
                     <div className="flex flex-1 items-center justify-start md:items-stretch md:justify-start">
                         <div className="flex shrink-0 items-center">
                             <img

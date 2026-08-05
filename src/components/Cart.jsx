@@ -1,13 +1,13 @@
 import { useState, useContext } from "react"
 import thumbnail1 from "../assets/images/image-product-1-thumbnail.jpg"
-import { ProductContext } from "../context/ProductContext"
+import { ProductContext } from "../contexts/ProductContext"
 
 function Cart({ isOpen }) {
     const { count, setCount } = useContext(ProductContext)
 
     if (isOpen) {
         return (
-            <div className="absolute right-0 top-16 w-80 p-8 bg-white border border-gray-400 rounded-xl shadow-xl">
+            <div className="absolute right-0 top-16 p-6 bg-white border border-gray-400 rounded-xl shadow-xl sm:w-100 w-full scale-95">
                 {count === 0 ? (
                     <p>Your cart is empty</p>
                 ) : (

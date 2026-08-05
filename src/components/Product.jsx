@@ -10,7 +10,7 @@ import minus from "../assets/images/icon-minus.svg"
 import plus from "../assets/images/icon-plus.svg"
 import cart from "../assets/images/icon-cart.svg"
 import { useState, useEffect, useContext } from "react"
-import { ProductContext } from "../context/ProductContext"
+import { ProductContext } from "../contexts/ProductContext"
 
 const images = [
     {
