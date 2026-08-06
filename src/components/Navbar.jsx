@@ -20,7 +20,7 @@ function Navbar() {
     return (
         <nav className="relative bg-white after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px font-light">
             <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-                <div className="relative flex h-16 items-center justify-between">
+                <div className="relative flex h-14 lg:h-16 items-center justify-between">
                     <button
                         className="p2"
                         onClick={() => setIsSidebarOpen(!isSidebarOpen)}
@@ -36,38 +36,38 @@ function Navbar() {
                             <img
                                 src={logo}
                                 alt="Sneakers"
-                                className="w-32 sm:w-36 md:w-auto h-auto"
+                                className="w-28 sm:w-32 lg:w-auto h-auto"
                             />
                         </div>
                         <div className="hidden md:ml-6 md:block">
-                            <div className="flex space-x-4">
+                            <div className="flex space-x-1 lg:space-x-4">
                                 <a
                                     href="#"
-                                    className="px-3 py-5 pt-7 font-medium text-gray-700 border-b-2 border-b-transparent hover:border-b-[hsl(26_100%_55%)] text-lg"
+                                    className="px-2 lg:px-3 py-5 pt-7 font-medium text-gray-700 border-b-2 border-b-transparent hover:border-b-[hsl(26_100%_55%)] text-sm lg:text-lg"
                                 >
                                     Collections
                                 </a>
                                 <a
                                     href="#"
-                                    className="px-3 py-5 pt-7 font-medium text-gray-700 border-b-2 border-b-transparent hover:border-b-[hsl(26_100%_55%)] text-lg"
+                                    className="px-2 lg:px-3 py-5 pt-7 font-medium text-gray-700 border-b-2 border-b-transparent hover:border-b-[hsl(26_100%_55%)] text-sm lg:text-lg"
                                 >
                                     Men
                                 </a>
                                 <a
                                     href="#"
-                                    className="px-3 py-5 pt-7 font-medium text-gray-700 border-b-2 border-b-transparent hover:border-b-[hsl(26_100%_55%)] text-lg"
+                                    className="px-2 lg:px-3 py-5 pt-7 font-medium text-gray-700 border-b-2 border-b-transparent hover:border-b-[hsl(26_100%_55%)] text-sm lg:text-lg"
                                 >
                                     Women
                                 </a>
                                 <a
                                     href="#"
-                                    className="px-3 py-5 pt-7 font-medium text-gray-700 border-b-2 border-b-transparent hover:border-b-[hsl(26_100%_55%)] text-lg"
+                                    className="px-2 lg:px-3 py-5 pt-7 font-medium text-gray-700 border-b-2 border-b-transparent hover:border-b-[hsl(26_100%_55%)] text-sm lg:text-lg"
                                 >
                                     About
                                 </a>
                                 <a
                                     href="#"
-                                    className="px-3 py-5 pt-7 font-medium text-gray-700 border-b-2 border-b-transparent hover:border-b-[hsl(26_100%_55%)] text-lg"
+                                    className="px-2 lg:px-3 py-5 pt-7 font-medium text-gray-700 border-b-2 border-b-transparent hover:border-b-[hsl(26_100%_55%)] text-sm lg:text-lg"
                                 >
                                     Contact
                                 </a>
@@ -91,7 +91,7 @@ function Navbar() {
                             <img
                                 src={avatar}
                                 alt="User Avatar"
-                                className="h-12 w-12 border-2 border-transparent rounded-full hover:border-[hsl(26_100%_55%)]"
+                                className="h-9 w-9 lg:h-12 lg:w-12 border-2 border-transparent rounded-full hover:border-[hsl(26_100%_55%)]"
                             />
                         </button>
                     </div>
