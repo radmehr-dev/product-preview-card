@@ -1,25 +1,47 @@
 # Product Preview Card
 
-A responsive product preview card built with React and Tailwind CSS.
+A responsive e-commerce product page built with React, Vite, and Tailwind CSS.
 
-## Technologies
+## 📸 Screenshot
+
+# Desktop Preview
+
+![Desktop Screenshot](./src/assets/design/desktop-design.jpg)
+
+# Mobile Preview
+
+![Mobile Screenshot](./src/assets/design/mobile-design.jpg)
+
+# LightBox Preview
+
+![LightBox Screenshot](./src/assets/design/desktop-design-lightbox.jpg)
+
+## 🚀 Live Demo
+
+Coming soon...
+
+## ✨ Features
+
+- Responsive design
+- Product image gallery
+- Image lightbox (Desktop)
+- Mobile image slider
+- Shopping cart
+- Quantity selector
+- Clean UI
+- React Context API
+
+## 🛠️ Built With
 
 - React
-- Tailwind CSS
 - Vite
+- Tailwind CSS
+- JavaScript (ES6)
 
-## Features
-
-- Responsive design for mobile and desktop
-- Built with reusable React components
-- Modern UI with Tailwind CSS
-
-## Installation
+## 📦 Installation
 
 ```bash
+git clone ...
+cd project
 npm install
 npm run dev
-```
-## Preview
-
-![Product Screenshot](src/assets/design/desktop-design.jpg)
